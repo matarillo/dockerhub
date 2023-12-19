@@ -8,7 +8,7 @@ const screenshot = async (req, res, next) => {
     try {
         const browser = await puppeteer.launch({
             executablePath: '/bin/google-chrome',
-            args: ['--no-sandbox', '--disable-setuid-sandbox', '--window-size=480,800']
+            args: ['--no-sandbox', '--disable-setuid-sandbox', '--no-zygote', '--single-process', '--no-first-run', '--window-size=480,800']
         });
         try {
             const page = await browser.newPage();
